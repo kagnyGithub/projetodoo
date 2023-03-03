@@ -1,0 +1,101 @@
+<odoo>
+    <record id="action_library_abonne" model="ir.actions.act_window">
+        <field name="name">Liste des Abonnes</field>
+        <field name="res_model">library.abonne</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="library_abonne_list" model="ir.ui.view">
+        <field name="name">Abonne: Liste</field>
+        <field name="model">library.abonne</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="l_name"/>
+                    <field name="f_name"/>
+                    <field name="sex"/>
+                    <field name="cni"/>
+                    <field name="date_birth"/>
+                    <field name="date_registration"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="isabonne"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_abonne_kanban_view" model="ir.ui.view">
+         <field name="name">Abonne Kanban view</field>
+          <field name="model">library.abonne</field>
+         <field name="arch" type="xml">
+            <kanban>
+                <field name="l_name"/>
+                 <field name="f_name"/>
+                <field name="sex"/>
+                <field name="cni"/>
+                <field name="date_birth"/>
+                <field name="date_registration"/>
+                <field name="id" />
+                 <templates>
+                <field name="image" />
+                     <t t-name="kanban-box">
+                         <div class="oe_kanban_global_click">
+                             <div class="o_kanban_image " >
+                                 <img class="o_kanban_imahe_inner_pic" t-att-src="kanban_image('library.abonne','image',record.id.raw_value)" />
+                             </div>
+                             <div class="oe_kanban_datails d-flex flex-column">
+                                 <ul>
+                                     <li>Nom:-<field name="l_name"/></li>
+                                     <li>Prenom:-<field name="f_name"/></li>
+                                     <li>Sex:-<field name="sex"/></li>
+                                     <li>CNI:-<field name="cni"/></li>
+                                     <li>Date Naiss:-<field name="date_birth"/></li>
+                                     <li>Date Insc:- <field name="date_registration"/></li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </t>
+                 </templates>
+            </kanban>
+         </field>
+    </record>
+
+    <record id="library_abonne_form" model="ir.ui.view">
+        <field name="name">Abonne: form</field>
+        <field name="model">library.abonne</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                <button name="send_email_template" type="object" string="Send mail"  icon="fa-envelope"   class="oe_highlight" ></button>
+            </header>
+                <group>
+                    <group>
+                        <field name="l_name"/>
+                        <field name="f_name"/>
+                        <field name="sex"/>
+                        <field name="cni"/>
+                        <field name="date_birth"/>
+                    </group>
+                    <group>
+                         <field name="date_registration"/>
+                         <field name="email"/>
+                         <field name="phone"/>
+                         <field name="isabonne"/>
+                         <field name="image" class="oe_avatar" widget="image"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Livres Empruntés">
+                        <field name="borrow_ids"></field>
+                    </page>
+                    <page string="Livres Reservés">
+                        <field name="reserve_ids"></field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <menuitem sequence="0" id="menu_base" name="Library Management"/>
+    <menuitem id="menu_ecole_content" parent="menu_base"
+                name="Abonnés" action="action_library_abonne"/>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="student_card_report_template">
+    <t t-call="web.basic_layout">
+                <div class="page">
+                     <t t-foreach="docs" t-as="student">
+                         <div class="col-md-6">
+                             <table style="width:240pt;height:240pt;border:1px solid black; border-collapse:separate;border-radius:8pt;margin:5pt;">
+                                 <tr>
+                                     <td>
+                                         <img t-if="student.student_img" t-att-src="image_data_uri(student.student_img)"
+                                         alt="Student image" width="150"/>
+                                         <img t-att-src="'/report/barcode/QR/%s'%(student.f_name)" alt="Barcode" width="80" height="80" />
+                                     </td>
+                                     <td>
+                                         <table>
+                                             <tr>
+                                                 <td>
+                                                     <t t-esc="student.f_name" />
+                                                 </td>
+                                                 <td>
+                                                     <t t-esc="student.classroom_id.name" />
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+
+                             </table>
+                         </div>
+                     </t>
+                </div>
+    </t>
+</template>
+    <record id="university_student_report_action" model="ir.actions.report">
+            <field name="name">Sutent Card img</field>
+            <field name="model">university.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">qweb_pdf_report.student_card_report_template</field>
+            <field name="report_file">qweb_pdf_report.student_card_report_template</field>
+            <field name="print_report_name">'Student-card Img'</field>
+            <field name="binding_model_id" ref="university.model_university_student"></field>
+            <field name="binding_type">report</field>
+    </record>
+</odoo>
+
+

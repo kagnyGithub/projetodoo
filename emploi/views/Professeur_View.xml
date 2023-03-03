@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_professeur_action" model="ir.actions.act_window">
+        <field name="name">Professeur</field>
+        <field name="res_model">emploi.professeur</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter un Professeur
+            </p>
+        </field>
+    </record>
+
+    <record id="professeur_view_tree" model="ir.ui.view">
+        <field name="name">Liste des Professeurs</field>
+        <field name="model">emploi.professeur</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Profeseurs">
+                <field name="cours_ids"/>
+                <field name="lastName"/>
+                <field name="firstName"/>
+                <field name="phoneNumber"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="professeur_view_form" model="ir.ui.view">
+        <field name="name">emploi.professeur.form</field>
+        <field name="model">emploi.professeur</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Professeurs">
+                <field name="cours_ids"/>
+                <field name="lastName"/>
+                <field name="firstName"/>
+                <field name="phoneNumber"/>
+                <field name="email"/>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_emploi_professeur" name="Professeurs" action='emploi_professeur_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

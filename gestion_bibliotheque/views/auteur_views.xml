@@ -1,0 +1,36 @@
+<odoo>
+    <record id="action_biblio_auteur" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.auteur</field>
+    </record>
+
+    <record id="biblio_auteur_list" model="ir.ui.view">
+        <field name="name">Auteur: Liste</field>
+        <field name="model">biblio.auteur</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="nom"/>
+                    <field name="prenom"/>
+                    <field name="bibliographie"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_auteur_form" model="ir.ui.view">
+        <field name="name">Eleve: form</field>
+        <field name="model">biblio.auteur</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="nom"/>
+                    <field name="prenom"/>
+                    <field name="bibliographie"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_biblio_content_auteur" parent="menu_base" name="Auteurs" action="action_biblio_auteur"/>
+</odoo>

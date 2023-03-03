@@ -1,0 +1,108 @@
+<odoo>
+    <template id="report_emploipresence_document">
+      <t t-call="web.external_layout">
+            <style  type="text/css">
+                table{
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td{
+          border: 1px solid black;
+          padding: 10px;
+          text-align: center;
+          white-space: nowrap;
+        }
+            </style>
+            <div class="page">
+
+                <h3>
+                    Master1: Transmission de Données et Sécurite de l'Information
+                  </h3>
+                <h4 style="text-align: center;">Option: MCS 2021_2022</h4>
+
+            </div>
+          <h5>
+             Cours de : <span t-field="o.cours_id.matiere_id.name"/>
+          </h5>
+          <h5>
+             Professeur : <span t-field="o.cours_id.professeur_id.firstName"/>
+            <span t-field="o.cours_id.professeur_id.lastName"/>
+          </h5>
+          <h5>
+             Date : <span t-field="o.cours_id.dateDebut"/>
+          </h5><br/>
+
+                 <h4 style="color:#000080; text-align: center;">Feuille de presence Professeur</h4>
+          <br/>
+            <div>
+                <table>
+                     <thead>
+                         <tr>
+                            <th>Debut</th>
+                             <th>Fin</th>
+                             <th>Duree</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                        <tr>
+                              <td>
+                                  <span t-field="o.cours_id.dateDebut"/>
+                          </td>
+                              <td>
+                                  <span t-field="o.cours_id.dateFin"/>
+                          </td>
+                              <td>
+                                  <span t-field="o.cours_id.duree"/>
+                          </td>
+                          </tr>
+                        </tbody>
+                </table>
+            </div> <br/><br/>
+            <div>
+                <div>
+                    <h4 style="color:#000080; text-align: center;">Feuille de presence Etudiants</h4>
+                    <br/>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Date Naissance</th>
+                            <th>Age</th>
+                            <th>Date Arrivé</th>
+                            <th>Retard</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr t-foreach="o.etudiant_ids" t-as="e">
+                            <td><span t-field="e.firstName"/></td>
+                            <td><span t-field="e.lastName"/></td>
+                            <td><span t-field="e.birthday"/></td>
+                            <td><span t-field="e.age"/>ans</td>
+                            <td><span t-field="o.dateArrive"/></td>
+                            <td><span t-field="o.retard"/>mn</td>
+                            <td><span t-field="e.present"/></td>
+                            <td><span t-field="e.absent"/></td>
+
+                         </tr>
+                        </tbody>
+                    </table>
+<!--                    <span t-esc="o.echo_name()"/>-->
+                </div>
+
+            </div>
+        </t>
+
+    </template>
+    <template id="report_emploipresence">
+      <t t-call="web.html_container">
+          <t t-foreach="docs" t-as="o">
+              <t t-call="emploi.report_emploipresence_document"/>
+
+              </t>
+      </t>
+    </template>
+</odoo>

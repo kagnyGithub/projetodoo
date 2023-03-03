@@ -1,0 +1,36 @@
+<odoo>
+    <record id="action_biblio_reserve" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.reserve</field>
+    </record>
+
+    <record id="biblio_reserve_list" model="ir.ui.view">
+        <field name="name">reserve: Liste</field>
+        <field name="model">biblio.reserve</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="date_reserve"/>
+                    <field name="livre_id"/>
+                    <field name="abonne_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_reserve_form" model="ir.ui.view">
+        <field name="name">reserve: form</field>
+        <field name="model">biblio.reserve</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                    <field name="date_reserve"/>
+                    <field name="livre_id"/>
+                    <field name="abonne_id"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_biblio_content_reserve" parent="menu_base" name="Reserve un livre" action="action_biblio_reserve"/>
+</odoo>

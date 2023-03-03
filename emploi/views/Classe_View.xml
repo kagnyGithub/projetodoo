@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_classe_action" model="ir.actions.act_window">
+        <field name="name">Classe</field>
+        <field name="res_model">emploi.classe</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter une classe
+            </p>
+        </field>
+    </record>
+
+    <record id="classe_view_tree" model="ir.ui.view">
+        <field name="name">Liste des Classes</field>
+        <field name="model">emploi.classe</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Classes">
+                <field name="etudiant_ids"/>
+                <field name="cours_ids"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="classe_view_form" model="ir.ui.view">
+        <field name="name">emploi.classe.form</field>
+        <field name="model">emploi.classe</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Classes">
+                <field name="etudiant_ids"/>
+                <field name="cours_ids"/>
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_emploi_classe" name="Classes" action='emploi_classe_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

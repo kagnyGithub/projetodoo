@@ -1,0 +1,33 @@
+<odoo>
+    <record id="action_library_editor" model="ir.actions.act_window">
+        <field name="name">Liste des editeurs</field>
+        <field name="res_model">library.editor</field>
+    </record>
+
+    <record id="library_editor_list" model="ir.ui.view">
+        <field name="name">Editor: Liste</field>
+        <field name="model">library.editor</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="l_name"/>
+                    <field name="f_name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="library_editor_form" model="ir.ui.view">
+        <field name="name">editor: form</field>
+        <field name="model">library.editor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                    <field name="l_name"/>
+                    <field name="f_name"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_content_editor" parent="menu_base" name="Editeurs" action="action_library_editor"/>
+</odoo>

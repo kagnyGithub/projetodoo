@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_presence_action" model="ir.actions.act_window">
+        <field name="name">presence</field>
+        <field name="res_model">emploi.presence</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter une presence
+            </p>
+        </field>
+    </record>
+
+    <record id="presence_view_tree" model="ir.ui.view">
+        <field name="name">Liste des presences</field>
+        <field name="model">emploi.presence</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Presences">
+                <field name="cours_id"/>
+                <field name="etudiant_ids"/>
+                <field name="dateArrive"/>
+                <field name="dateDebut"/>
+                <field name="dateFin"/>
+                <field name="nomMatiere"/>
+                <field name="motif"/>
+                <field name="retard"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="presence_view_form" model="ir.ui.view">
+        <field name="name">emploi.presence.form</field>
+        <field name="model">emploi.presence</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Presences">
+                <field name="cours_id"/>
+                <field name="etudiant_ids"/>
+                <field name="dateArrive"/>
+                <field name="dateDebut"/>
+                <field name="dateFin"/>
+                <field name="nomMatiere"/>
+                <field name="motif"/>
+                <field name="retard"/>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_emploi_presence" name="Presences" action='emploi_presence_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

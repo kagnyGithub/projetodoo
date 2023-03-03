@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_agence_users,agence.vehicule default,model_agence_vehicule,,1,0,0,0
+acl_agence_admin,agence.vehicule_admin,model_agence_vehicule,group_ag_managers,1,1,1,1
+
+acl_agence_m_users,agence.marque default,model_agence_marque,,1,0,0,0
+acl_agence_marque_admin,agence.marque_admin,model_agence_marque,group_ag_marque_managers,1,1,1,1
+acl_agence_c_users,res.partner default,model_res_partner,,1,0,0,0
+acl_agence_cond_admin,res.partner_admin,model_res_partner,group_ag_cond_managers,1,1,1,1
+
+acl_agence_categ_users,agence.categorie.vehicule default,model_agence_categorie_vehicule,,1,0,0,0
+acl_agence_categ_admin,agence.categorie.vehicule_admin,model_agence_categorie_vehicule,group_ag_categorie_managers,1,1,1,1

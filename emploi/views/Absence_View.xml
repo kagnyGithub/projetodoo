@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_absence_action" model="ir.actions.act_window">
+        <field name="name">Absence</field>
+        <field name="res_model">emploi.absence</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter une absence
+            </p>
+        </field>
+    </record>
+
+    <record id="absence_view_tree" model="ir.ui.view">
+        <field name="name">Liste des absences</field>
+        <field name="model">emploi.absence</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Absences">
+                <field name="cours_id"/>
+                <field name="etudiant_ids"/>
+                <field name="description"/>
+                <field name="present"/>
+                <field name="absent"/>
+                <field name="motif"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="absence_view_form" model="ir.ui.view">
+        <field name="name">emploi.absence.form</field>
+        <field name="model">emploi.absence</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Absences">
+                <field name="cours_id"/>
+                <field name="etudiant_ids"/>
+                <field name="description"/>
+                <field name="present"/>
+                <field name="absent"/>
+                <field name="motif"/>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_emploi_absence" name="Absences" action='emploi_absence_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

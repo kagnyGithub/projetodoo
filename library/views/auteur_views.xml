@@ -1,0 +1,36 @@
+<odoo>
+    <record id="action_library_other" model="ir.actions.act_window">
+        <field name="name">Liste des auteurs</field>
+        <field name="res_model">library.other</field>
+    </record>
+
+    <record id="library_other_list" model="ir.ui.view">
+        <field name="name">other: Liste</field>
+        <field name="model">library.other</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="l_name"/>
+                    <field name="f_name"/>
+                    <field name="bibliography"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_other_form" model="ir.ui.view">
+        <field name="name">other: form</field>
+        <field name="model">library.other</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="l_name"/>
+                    <field name="f_name"/>
+                    <field name="bibliography"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_content_other" parent="menu_base" name="Auteurs" action="action_library_other"/>
+</odoo>

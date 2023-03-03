@@ -1,0 +1,40 @@
+<odoo>
+    <record id="action_biblio_emprunte" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.emprunte</field>
+    </record>
+
+    <record id="biblio_emprunte_list" model="ir.ui.view">
+        <field name="name">emprunte: Liste</field>
+        <field name="model">biblio.emprunte</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="date_emprute"/>
+                    <field name="date_retour"/>
+                    <field name="nbre_renouv"/>
+                    <field name="abonne_id"/>
+                    <field name="exemplaire_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_emprunte_form" model="ir.ui.view">
+        <field name="name">emprunte: form</field>
+        <field name="model">biblio.emprunte</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="date_emprute"/>
+                    <field name="date_retour"/>
+                    <field name="nbre_renouv"/>
+                    <field name="abonne_id"/>
+                    <field name="exemplaire_id"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_biblio_content_emprunte" parent="menu_base" name="Emprunter un livre" action="action_biblio_emprunte"/>
+</odoo>

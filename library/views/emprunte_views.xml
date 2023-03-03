@@ -1,0 +1,41 @@
+<odoo>
+    <record id="action_library_borrow" model="ir.actions.act_window">
+        <field name="name">Liste des emprunts</field>
+        <field name="res_model">library.borrow</field>
+    </record>
+
+    <record id="library_borrow_list" model="ir.ui.view">
+        <field name="name">borrow: Liste</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="date_borrow"/>
+                    <field name="date_return"/>
+                    <field name="nbre_renew"/>
+                    <field name="abonne_id"/>
+                    <field name="exemplary_id"/>
+                    <field name="nbre_jour" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_borrow_form" model="ir.ui.view">
+        <field name="name">borrow: form</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="date_borrow"/>
+                    <field name="date_return"/>
+                    <field name="nbre_renew"/>
+                    <field name="abonne_id"/>
+                    <field name="exemplary_id"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <menuitem id="menu_library_content_operation" parent="menu_base" name="Operations "/>
+    <menuitem id="menu_library_content_borrow" parent="menu_library_content_operation" name="enprunte un livre " action="action_library_borrow"/>
+</odoo>

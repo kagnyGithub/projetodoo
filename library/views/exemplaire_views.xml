@@ -1,0 +1,40 @@
+<odoo>
+    <record id="action_library_exemplary" model="ir.actions.act_window">
+        <field name="name">Liste des  Exemplaires</field>
+        <field name="res_model">library.exemplary</field>
+    </record>
+
+    <record id="library_exemplary_list" model="ir.ui.view">
+        <field name="name">exemplary: Liste</field>
+        <field name="model">library.exemplary</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="date_acquisition"/>
+                    <field name="code_usure"/>
+                    <field name="book_id"/>
+                    <field name="editor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_exemplary_form" model="ir.ui.view">
+        <field name="name">exemplary: form</field>
+        <field name="model">library.exemplary</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                    <group>
+                        <field name="date_acquisition"/>
+                        <field name="code_usure"/>
+                        <field name="book_id"/>
+                        <field name="editor_id"/>
+                    </group>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_content_exemplary" parent="menu_base" name="exemplaires" action="action_library_exemplary"/>
+</odoo>

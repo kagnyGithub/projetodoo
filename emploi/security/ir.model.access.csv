@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emploi_classe,emploi.classe,model_emploi_classe,,1,1,1,1
+access_emploi_cours,emploi.cours,model_emploi_cours,,1,1,1,1
+access_emploi_etudiant,emploi.etudiant,model_emploi_etudiant,,1,1,1,1
+access_emploi_matiere,emploi.matiere,model_emploi_matiere,,1,1,1,1
+access_emploi_presence,emploi.presence,model_emploi_presence,,1,1,1,1
+access_emploi_professeur,emploi.professeur,model_emploi_professeur,,1,1,1,1
+access_emploi_absence,emploi.absence,model_emploi_absence,,1,1,1,1

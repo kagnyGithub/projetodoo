@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biblio_abonne,access_biblio_abonne,model_biblio_abonne,,1,1,1,1
+access_biblio_auteur,access_biblio_auteur,model_biblio_auteur,,1,1,1,1
+access_biblio_emprunte,access_biblio_emprunte,model_biblio_emprunte,,1,1,1,1
+access_biblio_editeur,access_biblio_editeur,model_biblio_editeur,,1,1,1,1
+access_biblio_exemplaire,access_biblio_exemplaire,model_biblio_exemplaire,,1,1,1,1
+access_biblio_livre,access_biblio_livre,model_biblio_livre,,1,1,1,1
+access_biblio_reserve,access_biblio_reserve,model_biblio_reserve,,1,1,1,1
+

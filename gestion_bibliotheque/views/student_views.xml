@@ -1,0 +1,56 @@
+<odoo>
+    <record id="action_biblio_abonne" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.abonne</field>
+    </record>
+
+    <record id="biblio_abonne_list" model="ir.ui.view">
+        <field name="name">Abonne: Liste</field>
+        <field name="model">biblio.abonne</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="nom"/>
+                    <field name="prenom"/>
+                    <field name="sexe"/>
+                    <field name="cni"/>
+                    <field name="dateNaissance"/>
+                    <field name="dateInscription"/>
+                    <field name="email"/>
+                    <field name="telephone"/>
+                    <field name="isabonne"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_abonne_form" model="ir.ui.view">
+        <field name="name">Eleve: form</field>
+        <field name="model">biblio.abonne</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="send_email_template" type="object" string="Send email"></button>
+                </header>
+                <group>
+                    <group>
+                        <field name="nom"/>
+                        <field name="prenom"/>
+                        <field name="sexe"/>
+                        <field name="cni"/>
+                        <field name="dateNaissance"/>
+                    </group>
+                    <group>
+                         <field name="dateInscription"/>
+                         <field name="email"/>
+                         <field name="telephone"/>
+                        <field name="isabonne"/>
+                        <field name="image" widget="image"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <menuitem sequence="0" id="menu_base" name="Gestion Bibliotheque"/>
+    <menuitem id="menu_ecole_content" parent="menu_base"
+                name="Abonne" action="action_biblio_abonne"/>
+</odoo>

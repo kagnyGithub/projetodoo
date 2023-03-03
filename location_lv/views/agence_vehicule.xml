@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+         <record id='agence_vehicule_action' model='ir.actions.act_window'>
+            <field name="name"> Gestion des Véhicules  </field>
+            <field name="res_model">agence.vehicule</field>
+            <field name="view_mode">tree,form</field>
+         </record>
+
+         <menuitem name="Mon Agence de Location" id="agence_base_menu" />
+             <menuitem name="Vehicules" id="agence_vehicule_menu" parent="agence_base_menu" action="agence_vehicule_action"/>
+
+
+        <record id="agence_vehicule_view_form" model="ir.ui.view">
+        <field name="name">Agence Vehicule Form</field>
+        <field name="model">agence.vehicule</field>
+        <field name="arch" type="xml">
+             <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="marque_id"/>
+                        <field name="modele"/>
+                         <field name="matricule"/>
+                        <field name="chaffeur_ids" widget="many2many_tags"/>
+                        <field name="prix_achat_v"/>
+                        <field name="currency_id"/>
+                        <field name="prix_vente_v"/>
+                            <field name="notes"/>
+                        <field name="description"/>
+                        <field name="category_id"/>
+                    </group>
+                    <group>
+                        <field name="active"/>
+                        <field name="veh_service"/>
+                        <field name="nb_places"/>
+                        <field name="state"/>
+                        <field name="dern_kilometrage"/>
+                        <field name="image_v" widget="image" class="oe_avatar"/>
+                        <field name="date_achat"/>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+            </field>
+        </record>
+
+         <record id="agence_vehicule_tree" model="ir.ui.view">
+                <field name="name">Agence Vehicule Liste</field>
+                <field name="model">agence.vehicule</field>
+                <field name="arch" type="xml">
+                    <tree>
+                        <field name="matricule"/>
+                        <field name="marque_id"/>
+                        <field name="modele"/>
+                        <field name="date_achat"/>
+                    </tree>
+                </field>
+        </record>
+
+    <record id="agence_vehicule_search" model="ir.ui.view">
+            <field name="name">Agence Vehicule Recherche</field>
+            <field name="model">agence.vehicule</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="marque_id"/>
+                    <field name="modele"/>
+                    <field name="date_achat"/>
+                    <filter string="Sans  Chaffeurs"
+                            name="without_driver"
+                            domain="[('chaffeur_ids','=',False)]"/>
+                </search>
+            </field>
+    </record>
+</odoo>

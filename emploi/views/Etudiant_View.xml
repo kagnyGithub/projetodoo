@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_etudiant_action" model="ir.actions.act_window">
+        <field name="name">Etudiant</field>
+        <field name="res_model">emploi.etudiant</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter un Etudiant
+            </p>
+        </field>
+    </record>
+
+    <record id="etudiant_view_tree" model="ir.ui.view">
+        <field name="name">Liste des Professeurs</field>
+        <field name="model">emploi.etudiant</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Etudiants">
+                <field name="classe_id"/>
+                <field name="absence_id" />
+                <field name="presence_id"/>
+                <field name="lastName"/>
+                <field name="firstName"/>
+                <field name="phoneNumber"/>
+                <field name="email"/>
+                <field name="birthday"/>
+                <field name="age"/>
+                <field name="present"/>
+                <field name="absent"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="etudiant_view_form" model="ir.ui.view">
+        <field name="name">emploi.etudiant.form</field>
+        <field name="model">emploi.etudiant</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Etudiants">
+                <field name="classe_id"/>
+                <field name="absence_id" />
+                <field name="presence_id"/>
+                <field name="lastName"/>
+                <field name="firstName"/>
+                <field name="phoneNumber"/>
+                <field name="email"/>
+                <field name="birthday"/>
+                <field name="age"/>
+                <field name="present"/>
+                <field name="absent"/>
+            </form>
+        </field>
+    </record>
+
+    <menuitem name="Gestion Emploi du Temps"
+        id="menu_emploi_root"
+        sequence="25"/>
+
+    <menuitem id="menu_emploi_etudiant" name="Etudiants" action='emploi_etudiant_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="emploi_cours_action" model="ir.actions.act_window">
+        <field name="name">Cours</field>
+        <field name="res_model">emploi.cours</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Ajouter un cours
+            </p>
+        </field>
+    </record>
+
+    <record id="cours_view_tree" model="ir.ui.view">
+        <field name="name">Liste des Cours</field>
+        <field name="model">emploi.cours</field>
+        <field name="arch" type="xml">
+            <tree string="Liste des Absences">
+                <field name="classe_id"/>
+                <field name="professeur_id"/>
+                <field name="matiere_id"/>
+                <field name="absence_ids"/>
+                <field name="description"/>
+                <field name="dateDebut"/>
+                <field name="dateFin"/>
+                <field name="duree"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="cours_view_form" model="ir.ui.view">
+        <field name="name">emploi.cours.form</field>
+        <field name="model">emploi.cours</field>
+        <field name="arch" type="xml">
+            <form string="Liste des Etudiants">
+                <header><button name="action_cours_send" string="Envoyer un mail" type="object" class="oe_highlight"/></header>
+               <field name="classe_id"/>
+                <field name="professeur_id"/>
+                <field name="matiere_id"/>
+                <field name="absence_ids"/>
+                <field name="description"/>
+                <field name="dateDebut"/>
+                <field name="dateFin"/>
+                <field name="duree"/>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_emploi_cours" name="Cours" action='emploi_cours_action'
+        parent="menu_emploi_root" sequence="1" />
+
+
+</odoo>

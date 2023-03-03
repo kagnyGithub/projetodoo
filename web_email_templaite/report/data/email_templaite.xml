@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_email_template" model="mail.template">
+        <field name="name" >Student email template</field>
+        <field name="model_id" ref="gestion_bibliotheque.model_biblio_abonne"></field>
+        <field name="subject"> Abonne Informations</field>
+        <field name="email_from">{{object.create_uid.email_formatted or ''}}</field>
+        <field name="email_to">{{object.email or ''}}</field>
+        <field name="partner_to">{{object.write_uid.partner_id.id or False}}</field>
+        <field name="body_html" type="html">
+            <div class="text-center">
+                 <p>Dear <span t-out="object.prenom"/>,</p>
+                 <img t-attf-src="data:image/png;base64,{{object.image}}" style="width:64px;height:64px;object-fit:cover;" alt="img"></img>
+            </div>
+
+            <t t-if="object.isabonne">
+                <p>Tu es abonne a la bibliotheque</p>
+            </t>
+            <p>This is simple email test </p>
+        </field>
+    </record>
+
+</odoo>

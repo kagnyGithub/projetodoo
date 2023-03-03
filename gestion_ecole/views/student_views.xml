@@ -1,0 +1,50 @@
+<odoo>
+    <record id="action_ecole_eleve" model="ir.actions.act_window">
+        <field name="name">Gestion Ecole</field>
+        <field name="res_model">ecole.eleve</field>
+    </record>
+
+    <record id="ecole_eleve_list" model="ir.ui.view">
+        <field name="name">Eleve: Liste</field>
+        <field name="model">ecole.eleve</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="nom"/>
+                    <field name="prenom"/>
+                    <field name="sexe"/>
+                    <field name="cni"/>
+                    <field name="dateNaissance"/>
+                    <field name="dateInscription"/>
+                    <field name="email"/>
+                    <field name="telephone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ecole_eleve_form" model="ir.ui.view">
+        <field name="name">Eleve: form</field>
+        <field name="model">ecole.eleve</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nom"/>
+                        <field name="prenom"/>
+                        <field name="sexe"/>
+                        <field name="cni"/>
+                        <field name="dateNaissance"/>
+                    </group>
+                    <group>
+                         <field name="dateInscription"/>
+                         <field name="email"/>
+                         <field name="telephone"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <menuitem sequence="0" id="menu_base" name="Gestion Ecole"/>
+    <menuitem id="menu_ecole_content" parent="menu_base"
+                name="Eleve" action="action_ecole_eleve"/>
+</odoo>

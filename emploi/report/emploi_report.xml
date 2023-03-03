@@ -1,0 +1,10 @@
+<odoo>
+    <report string="emploi"
+            id="report_emploi_presence"
+            model="emploi.presence"
+            report_type="qweb-pdf"
+            menu="True"
+            name="emploi.report_emploipresence"
+            file="emploi.report_emploipresence"
+            />
+    </odoo>

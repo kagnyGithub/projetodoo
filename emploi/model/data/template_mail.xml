@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_emploi" model="mail.template">
+            <field name="name">Cours</field>
+            <field name="email_from">consultationpatient@gmail.com</field>
+            <field name="email_to">thiaopenda2503@gmail.com</field>
+            <field name="subject">Liste des cours ${object.name}</field>
+            <field name="model_id" ref="model_emploi_cours"/>
+                <field name="body_html"><![CDATA[
+                <p>Bonjour Penda</p>]]></field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

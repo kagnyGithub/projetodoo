@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="access_library_category" model="ir.module.category">
+        <field name="name">Library  category</field>
+        <field name="sequence" eval="1"/>
+    </record>
+    <record id="access_library_sub_category" model="ir.module.category">
+        <field name="name">Library Sub  category</field>
+        <field name="sequence" eval="1"/>
+        <field name="parent_id" ref="access_library_category" />
+    </record>
+
+     <record id="access_library_low_level_group" model="res.groups">
+        <field name="name">Library low level</field>
+        <field name="category_id" ref="access_library_sub_category"/>
+    </record>
+
+    <record id="access_library_mid_level_group" model="res.groups">
+        <field name="name">Library mid level</field>
+        <field name="category_id" ref="access_library_sub_category"/>
+         <field name="implied_ids" eval="[(6,0,[ref('access_library_low_level_group')])]"/>
+    </record>
+
+    <record id="access_admin_level__group" model="res.groups">
+        <field name="name">Library admin level</field>
+        <field name="category_id" ref="access_library_sub_category"/>
+        <field name="implied_ids" eval="[(6,0,[ref('access_library_mid_level_group')])]"/>
+    </record>
+
+
+    <!--<record id="student_profil_rule" model="ir.rule">
+        <field name="name">User rule</field>
+        <field ref="student_profil.model_student_security_student" name="model_id"/>
+        <field name="domain_force">[('create_uid', '=',user.id )]</field>
+        <field name="groups" eval="[(4, ref('student_profil_group'))]"/>
+    </record>-->
+
+</odoo>

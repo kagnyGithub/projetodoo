@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="student_profil_category" model="ir.module.category">
+        <field name="name">Student Profile</field>
+        <field name="sequence" eval="1"/>
+    </record>
+
+    <record id="student_profil_group" model="res.groups">
+        <field name="name">student profile group</field>
+        <field name="category_id" ref="student_profil_category"/>
+        <!--
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+    <record id="student_profil_second_group" model="res.groups">
+        <field name="name">student profile group 2</field>
+        <field name="category_id" ref="student_profil_category"/>
+        <!--
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+    <record id="student_profil_second_group_extend" model="res.groups">
+        <field name="name">student profile group extend</field>
+        <field name="category_id" ref="student_profil_category"/>
+        <field name="implied_ids" eval="[(6,0,[ref('student_profil_group'),ref('student_profil_second_group')])]"/>
+    </record>
+
+    <record id="access_university_student_all_permission" model="ir.model.access">
+        <field name="name">End user permission</field>
+        <field name="model_id" ref="model_student_security_student" ></field>
+        <field name="group_id" ref="student_profil_group" />
+        <field name="perm_read">1</field>
+        <field name="perm_write">1</field>
+        <field name="perm_create">1</field>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="student_profil_rule" model="ir.rule">
+        <field name="name">User rule</field>
+        <field ref="student_profil.model_student_security_student" name="model_id"/>
+        <field name="domain_force">[('create_uid', '=',user.id )]</field>
+        <field name="perm_unlink" eval="0"/>
+        <field name="groups" eval="[(4, ref('student_profil_group'))]"/>
+        <!--<field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_read" eval="1"/>
+
+        &lt;!&ndash; You can attach this rule to a specific group, Or make it Global &ndash;&gt;
+
+        <field name="global" eval="1"/> -->
+    </record>
+
+</odoo>

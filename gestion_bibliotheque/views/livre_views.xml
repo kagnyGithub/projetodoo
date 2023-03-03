@@ -1,0 +1,40 @@
+<odoo>
+    <record id="action_biblio_livre" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.livre</field>
+    </record>
+
+    <record id="biblio_livre_list" model="ir.ui.view">
+        <field name="name">Livre: Liste</field>
+        <field name="model">biblio.livre</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="titre"/>
+                    <field name="type_livre"/>
+                    <field name="livre_image" widget="image" string="Image"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_livre_form" model="ir.ui.view">
+        <field name="name">Livre: form</field>
+        <field name="model">biblio.livre</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="titre"/>
+                    <field name="type_livre"/>
+                </group>
+                    <group>
+                        <field name="documents" filename="document_name"/>
+                        <field name="document_name"/>
+                        <field name="livre_image" widget="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_biblio_content_livre" parent="menu_base" name="Livres" action="action_biblio_livre"/>
+</odoo>

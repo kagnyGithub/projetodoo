@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id='agence_marque_action' model='ir.actions.act_window'>
+        <field name="name"> Gestion des Marques </field>
+        <field name="res_model">agence.marque</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Marques" id="agence_marque_menu"
+     parent="agence_base_menu" action="agence_marque_action"/>
+    <record id="agence_marque_view_form" model="ir.ui.view">
+        <field name="name">Agence Marque Form</field>
+        <field name="model">agence.marque</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="agence_marque_tree" model="ir.ui.view">
+            <field name="name">Agence Marque Lise</field>
+            <field name="model">agence.marque</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="logo"/>
+                </tree>
+            </field>
+    </record>
+    <record id="agence_marque_search" model="ir.ui.view">
+            <field name="name">Agence Marque Recherche</field>
+            <field name="model">agence.marque</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+    </record>
+</odoo>

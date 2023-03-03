@@ -1,0 +1,32 @@
+<odoo>
+    <record id="action_library_theme" model="ir.actions.act_window">
+        <field name="name">Liste des Livres</field>
+        <field name="res_model">library.theme</field>
+    </record>
+
+    <record id="library_theme_list" model="ir.ui.view">
+        <field name="name">theme: Liste</field>
+        <field name="model">library.theme</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="wording"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_theme_form" model="ir.ui.view">
+        <field name="name">theme: form</field>
+        <field name="model">library.theme</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                   <field name="wording"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_content_theme" parent="menu_base" name="Themes" action="action_library_theme"/>
+</odoo>

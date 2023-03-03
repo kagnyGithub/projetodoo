@@ -1,0 +1,25 @@
+{
+    'name': 'Gestion Biblitheque',
+    'version': '15.0.1',
+    'category': 'Gestion Bibliotheque',
+    'summary': 'Projet de gestion d"une bibliotheque universitaire',
+    'description': "",
+    'website': 'https://www.odoo.com/page/ecole',
+    'depends': ['base', 'website','mail'],
+    'data': [
+        'views/student_views.xml',
+        'views/auteur_views.xml',
+        'views/editeur_views.xml',
+        'views/livre_views.xml',
+        'views/exemplaire_views.xml',
+        'views/emprunte_views.xml',
+        'views/reserve_views.xml',
+        'security/ir.model.access.csv'
+    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'qweb': [],
+    'license': 'LGPL-3',
+}

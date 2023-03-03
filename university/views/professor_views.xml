@@ -1,0 +1,62 @@
+<odoo>
+    <record id="action_university_professor" model="ir.actions.act_window">
+        <field name="name">University</field>
+        <field name="res_model">university.professor</field>
+    </record>
+
+    <record id="university_professor_list" model="ir.ui.view">
+    <field name="name">Professor: List</field>
+    <field name="model">university.professor</field>
+    <field name="arch" type="xml">
+        <tree>
+                <field name="f_name"/>
+                <field name="l_name"/>
+                <field name="sexe"/>
+                <field name="identity_card"/>
+                <field name="birthday"/>
+                <field name="start_day"/>
+                <field name="email"/>
+                <field name="phone"/>
+        </tree>
+    </field>
+</record>
+
+    <record id="university_professor_form" model="ir.ui.view">
+    <field name="name">Professor: form</field>
+    <field name="model">university.professor</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <div class="oe_button_box" name="expense_button_box">
+                    <button name="toggle_active"
+                            type="object"
+                            confirm="(Un)archiving a project automatically (un)archives its tasks and issues. Do you want to proceed?"
+                            class="oe_stat_button"
+                            icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                    </button>
+                </div>
+
+                 <group>
+                        <field name="f_name"/>
+                        <field name="l_name"/>
+                        <field name="sexe"/>
+                        <field name="identity_card"/>
+                        <field name="address"/>
+                        <field name="birthday"/>
+                        <field name="start_day"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="departement_id"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+    <menuitem id="menu_professor_content_"
+                parent="menu_base"
+                action="action_university_professor"
+                name="Professor"/>
+</odoo>

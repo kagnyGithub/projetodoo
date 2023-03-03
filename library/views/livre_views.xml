@@ -1,0 +1,74 @@
+<odoo>
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Liste des Livres</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="library_book_list" model="ir.ui.view">
+        <field name="name">book: Liste</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="title"/>
+                    <field name="type_book"/>
+                   <field name="theme_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_book_kanban_view" model="ir.ui.view">
+         <field name="name">Livre Kanban view</field>
+          <field name="model">library.book</field>
+         <field name="arch" type="xml">
+            <kanban>
+                <field name="title"/>
+                <field name="type_book"/>
+                <field name="theme_id" />
+                 <field name="id" />
+                <field name="book_image" />
+                 <templates>
+                     <t t-name="kanban-box">
+                         <div class="oe_kanban_global_click">
+                             <div class="o_kanban_image " >
+                                 <img class="o_kanban_imahe_inner_pic" t-att-src="kanban_image('library.book','book_image',record.id.raw_value)" />
+                             </div>
+                             <div class="oe_kanban_datails d-flex flex-column">
+                                 <ul>
+                                     <li><strong>Titre:</strong>-<field name="title"/></li>
+                                     <li><strong>Type::</strong>-<field name="type_book"/></li>
+                                     <li><strong>Theme:</strong>-<field name="theme_id"/></li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </t>
+                 </templates>
+            </kanban>
+         </field>
+    </record>
+
+    <record id="library_book_form" model="ir.ui.view">
+        <field name="name">book: form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                           <field name="title"/>
+                            <field name="type_book"/>
+                            <field name="theme_id" />
+                        </group>
+                        <group>
+                            <field name="documents" filename="document_name"/>
+                            <field name="document_name"/>
+                            <field name="book_image" widget="image" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_content_book" parent="menu_base" name="books" action="action_library_book"/>
+</odoo>

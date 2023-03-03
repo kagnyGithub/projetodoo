@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='agence_cond_action' model='ir.actions.act_window'>
+        <field name="name"> Gestion des Conducteurs </field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Conducteurs" id="agence_cond_menu"
+     parent="agence_base_menu" action="agence_cond_action"/>
+    <record id="agence_cond_view_form" model="ir.ui.view">
+        <field name="name">Agence Cond Form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+               <field name="type" position="before">
+                    <field name="vehicules_autorises_ids" widget="many2many_tags" />
+                </field>
+        </field>
+    </record>
+</odoo>

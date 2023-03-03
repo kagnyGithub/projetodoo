@@ -1,0 +1,43 @@
+<odoo>
+    <record id="action_biblio_exemplaire" model="ir.actions.act_window">
+        <field name="name">Gestion Bibliotheque</field>
+        <field name="res_model">biblio.exemplaire</field>
+    </record>
+
+    <record id="biblio_exemplaire_list" model="ir.ui.view">
+        <field name="name">exemplaire: Liste</field>
+        <field name="model">biblio.exemplaire</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="date_aquition"/>
+                    <field name="code_usure"/>
+                    <field name="livre_id"/>
+                    <field name="editeur_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="biblio_exemplaire_form" model="ir.ui.view">
+        <field name="name">exemplaire: form</field>
+        <field name="model">biblio.exemplaire</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group>
+                    <group>
+                        <field name="date_aquition"/>
+                        <field name="code_usure"/>
+                        <field name="livre_id"/>
+                    </group>
+                   <group>
+                         <field name="editeur_id"/>
+                       <field name="editeur_id"/>
+                   </group>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_biblio_content_exemplaire" parent="menu_base" name="Exemplaires" action="action_biblio_exemplaire"/>
+</odoo>
