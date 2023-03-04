@@ -2,6 +2,7 @@
     <record id="action_library_borrow" model="ir.actions.act_window">
         <field name="name">Liste des emprunts</field>
         <field name="res_model">library.borrow</field>
+        <field name="view_mode">tree,calendar,form</field>
     </record>
 
     <record id="library_borrow_list" model="ir.ui.view">
@@ -16,6 +17,17 @@
                     <field name="exemplary_id"/>
                     <field name="nbre_jour" />
             </tree>
+        </field>
+    </record>
+
+    <record id="library_calendar_views" model="ir.ui.view">
+        <field name="name">Calendar Library</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <calendar date_start="create_date">
+                <field name="date_borrow" />
+                <field name="abonne_id"/>
+            </calendar>
         </field>
     </record>
 
