@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <template id="portal_my_home" inherit_id="portal.portal_my_home">
+             <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                 <t t-call="portal.portal_docs_entry">
+                     <t t-set="url">/my/students</t>
+                     <t t-set="title">Student</t>
+                     <t t-set="placeholder_count" t-value="'student_counts'" />
+                 </t>
+             </xpath>
+        </template>
+
+    <template id="portal_breadcrumbs" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+         <li t-if="page_name == 'student_view_list'"  class="breadcrumb-item">Students</li>
+             <li t-if="page_name == 'student_form_list'"  class="breadcrumb-item">
+                 <a href="/my/students">Students </a>
+             </li>
+<!--            -->
+        </xpath>
+    </template>
+
+       <template id="wb_student_list_view_template">
+           <t t-call="portal.portal_layout">
+               <t t-call="portal.portal_table">
+                   <thead>
+                       <tr class="active">
+                           <th class="text-center">First Name</th>
+                           <th class="text-center">Last Name</th>
+                           <th class="text-center">Sex</th>
+                           <th class="text-center">Identity Card</th>
+                           <th class="text-center">Birthday</th>
+                           <th class="text-center">Email</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                        <t t-foreach="students" t-as="student">
+                            <tr >
+                                <td class="text-center">
+                                    <a t-attf-href="/my/students/#{student.id}">
+                                       <t t-out="student.f_name" />
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="student.l_name" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="student.sexe" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="student.identity_card" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="student.birthday" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="student.email" />
+                                </td>
+                            </tr>
+                        </t>
+                   </tbody>
+               </t>
+           </t>
+       </template>
+
+     <template id="wb_student_form_view_template" inherit_id="portal.portal_sidebar">
+         <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+             <section style="background-color: #eee;">
+              <div class="container py-5">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card mb-4">
+                      <div class="card-body text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                          class="rounded-circle img-fluid" style="width: 150px;" />
+                        <h5 class="my-3"><t t-out="student.f_name" /> </h5>
+                        <p class="text-muted mb-1">Full Stack Developer</p>
+                        <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                        <div class="d-flex justify-content-center mb-2">
+                          <button type="button" class="btn btn-primary">Follow</button>
+                          <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="card mb-4">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Full Name</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.f_name" /> <t t-out="student.l_name" /></p>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.email" /></p>
+                          </div>
+                        </div>
+                        <hr/>
+                           <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Identity Card</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.identity_card" /></p>
+                          </div>
+                        </div>
+                           <hr/>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Birthday</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.birthday" /></p>
+                          </div>
+                        </div>
+                           <hr/>
+                          <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Phone</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.phone" /></p>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Classroom</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.classroom_id.name" /></p>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Address</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <p class="text-muted mb-0"><t t-out="student.address" /></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </section>
+         </xpath>
+
+     </template>
+</odoo>

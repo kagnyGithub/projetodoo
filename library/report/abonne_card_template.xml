@@ -41,7 +41,7 @@
 
                              </table>
                              <div style="bottom:0;right:0;margin-top:20px;margin-left:200px;">
-                                 <img t-att-src="'/report/barcode/QR/%s'%(abonne.cni)" alt="Barcode" width="80" height="80"/>
+                                 <img t-att-src="'/report/barcode/QR/%s'%(abonne.code)" alt="Barcode" width="80" height="80"/>
                              </div>
 
                          </div>

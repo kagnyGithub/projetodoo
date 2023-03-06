@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="wb_bank_transactions_form_view" model="ir.ui.view">
+            <field name="name">wb_bank.transactions.form</field>
+            <field name="model">wb.bank.transactions</field>
+            <field name="arch" type="xml">
+                <form string="Transaction Form">
+                    <header>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                 <field name="wb_bank_id"/>
+                            </group>
+                            <group>
+                                <field name="balance"/>
+                                <field name="remark" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wb_bank_transactions_tree_view" model="ir.ui.view">
+            <field name="name">wb_bank.transactions.tree</field>
+            <field name="model">wb.bank.transactions</field>
+            <field name="arch" type="xml">
+                <tree string="List of transaction">
+                     <field name="name"/>
+                     <field name="wb_bank_id"/>
+                     <field name="balance"/>
+                     <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <!--<record id="wb_bank.transactions_search_view" model="ir.ui.view">
+            <field name="name">ProjectName.wb_bank.transactions.search</field>
+            <field name="model">ProjectName.wb_bank.transactions</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>-->
+
+        <record id="wb_bank_transactions_act_window" model="ir.actions.act_window">
+            <field name="name">Trasactions</field>
+            <field name="res_model">wb.bank.transactions</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Transaction" id="wb_bank_transactions_menu" parent="wb_bank_menu_root" action="wb_bank_transactions_act_window"/>
+
+</odoo>

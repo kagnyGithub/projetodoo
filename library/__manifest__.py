@@ -7,6 +7,7 @@
     'website': 'https://www.odoo.com/page/library',
     'depends': ['base', 'website','mail'],
     'data': [
+        'data/sequence_data.xml',
         'views/student_views.xml',
         'views/auteur_views.xml',
         'views/editeur_views.xml',

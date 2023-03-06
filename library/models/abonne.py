@@ -3,7 +3,7 @@ import datetime
 class LibraryAbonne(models.Model):
 
     _name="library.abonne"
-    cni = fields.Char('Numero Carte',readonly=True)
+    code = fields.Char('Numero Carte',readonly=True)
     l_name = fields.Char('Nom')
     f_name = fields.Char('Prenom')
     sex = fields.Selection([('female','Femme'),('male','Homme')])
@@ -35,10 +35,11 @@ class LibraryAbonne(models.Model):
     @api.model
     def create(self,values):
         values['isabonne']=True
-        m=str(datetime.datetime.now().month)
-        if len(m)<2:
-            m='0'+m
-        values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
+        # m=str(datetime.datetime.now().month)
+        # if len(m)<2:
+        #     m='0'+m
+        # values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
+        values['code'] = self.env['ir.sequence'].next_by_code("library.abonne")
         rtn = super(LibraryAbonne,self).create(values)
         return rtn
 

@@ -13,7 +13,7 @@
                     <field name="l_name"/>
                     <field name="f_name"/>
                     <field name="sex"/>
-                    <field name="cni"/>
+                    <field name="code"/>
                     <field name="date_birth"/>
                     <field name="date_registration"/>
                     <field name="email"/>
@@ -31,7 +31,7 @@
                 <field name="l_name"/>
                  <field name="f_name"/>
                 <field name="sex"/>
-                <field name="cni"/>
+                <field name="code"/>
                 <field name="date_birth"/>
                 <field name="date_registration"/>
                 <field name="id" />
@@ -47,7 +47,7 @@
                                      <li>Nom:-<field name="l_name"/></li>
                                      <li>Prenom:-<field name="f_name"/></li>
                                      <li>Sex:-<field name="sex"/></li>
-                                     <li>CNI:-<field name="cni"/></li>
+                                     <li>CNI:-<field name="code"/></li>
                                      <li>Date Naiss:-<field name="date_birth"/></li>
                                      <li>Date Insc:- <field name="date_registration"/></li>
                                  </ul>
@@ -72,7 +72,7 @@
                         <field name="l_name"/>
                         <field name="f_name"/>
                         <field name="sex"/>
-                        <field name="cni"/>
+                        <field name="code"/>
                         <field name="date_birth"/>
                     </group>
                     <group>

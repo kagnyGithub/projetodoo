@@ -1,0 +1,10 @@
+<odoo>
+    <record id="wb_bank_sequence" model="ir.sequence">
+        <field name="name">Bank sequence</field>
+        <field name="code">library.abonne</field>
+        <field name="prefix">LBR</field>
+        <field name="padding">5</field>
+        <field name="number_next" eval="1"></field>
+        <field name="number_increment" eval="1"></field>
+    </record>
+</odoo>
