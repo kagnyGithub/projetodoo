@@ -39,6 +39,7 @@ class LibraryAbonne(models.Model):
         # if len(m)<2:
         #     m='0'+m
         # values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
+
         values['code'] = self.env['ir.sequence'].next_by_code("library.abonne")
         rtn = super(LibraryAbonne,self).create(values)
         return rtn
