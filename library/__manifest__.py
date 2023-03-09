@@ -7,7 +7,6 @@
     'website': 'https://www.odoo.com/page/library',
     'depends': ['base', 'website','mail'],
     'data': [
-        'data/sequence_data.xml',
         'views/student_views.xml',
         'views/auteur_views.xml',
         'views/editeur_views.xml',
@@ -19,7 +18,11 @@
         'security/ir.model.access.xml',
         'security/ir.model.access.csv',
         'report/abonne_card_template.xml',
-        'report/email_templaite.xml'
+        'report/email_templaite.xml',
+        'views/accueil_views.xml',
+        'views/about_views.xml',
+        'views/contact_views.xml',
+        'views/login_views.xml'
     ],
     'demo': [],
     'installable': True,

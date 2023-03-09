@@ -2,7 +2,7 @@
     <record id="action_library_book" model="ir.actions.act_window">
         <field name="name">Liste des Livres</field>
         <field name="res_model">library.book</field>
-        <field name="view_mode">kanban,tree,graph,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="library_book_list" model="ir.ui.view">
@@ -20,7 +20,7 @@
     <record id="library_book_kanban_view" model="ir.ui.view">
          <field name="name">Livre Kanban view</field>
           <field name="model">library.book</field>
-         <field name="arch" type="xml">
+         <field name="arch" type="xml">  
             <kanban>
                 <field name="title"/>
                 <field name="type_book"/>
@@ -38,6 +38,7 @@
                                      <li><strong>Titre:</strong>-<field name="title"/></li>
                                      <li><strong>Type::</strong>-<field name="type_book"/></li>
                                      <li><strong>Theme:</strong>-<field name="theme_id"/></li>
+                                     <li><strong>Ecrivain(e):</strong>-<field name="other_ids"/></li>
                                  </ul>
                              </div>
                          </div>
@@ -47,23 +48,16 @@
          </field>
     </record>
 
-    od
-    <record id="library_graph_livre_view" model="ir.ui.view">
-        <field name="name">library.graph.livre.view</field>
-        <field name="model">library.book</field>
-        <field name="arch" type="xml">
-            <graph disable_linking="1">
-                  <field name="theme_id"/>
-                  <field name="title"/>
-            </graph>
-        </field>
-    </record>
-
     <record id="library_book_form" model="ir.ui.view">
         <field name="name">book: form</field>
         <field name="model">library.book</field>
         <field name="arch" type="xml">
             <form>
+            <header>
+                <button name="button_dispo" string="DISPONIBLE" type="object" class="oe_highlight"></button>
+                <button name="button_rupture" string="EN RUPTURE" type="object" class="oe_highlight"></button>
+                <field name="state" widget="statusbar" nolabel="1" ></field>
+            </header>
                 <sheet>
                     <group>
                         <group>
@@ -74,7 +68,9 @@
                         <group>
                             <field name="documents" filename="document_name"/>
                             <field name="document_name"/>
+                            <field name="other_ids" widget="many2many"/>
                             <field name="book_image" widget="image" />
+                            
                         </group>
                     </group>
                 </sheet>
@@ -82,5 +78,5 @@
         </field>
     </record>
 
-    <menuitem id="menu_library_content_book" parent="menu_base" name="books" action="action_library_book"/>
+    <menuitem id="menu_library_content_book" parent="menu_base" name="Books" action="action_library_book"/>
 </odoo>

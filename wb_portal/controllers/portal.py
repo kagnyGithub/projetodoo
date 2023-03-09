@@ -14,10 +14,9 @@ class WebPortal(CustomerPortal):
         student_obj = request.env['university.student']
         total_students = student_obj.search_count([])
         page_detail =  pager(url='/my/students',
-                             total= total_students,
-                             page = page,
-                             step = 30
-                              )
+                             total=total_students,
+                             page=page,
+                             step=5)
         students = student_obj.search([],limit=5, offset=page_detail['offset'])
 
         vals = {'students':students,'page_name':'student_view_list','pager':page_detail}

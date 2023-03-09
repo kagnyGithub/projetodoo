@@ -2,6 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_library_mid_abonne,access_library_mid_abonne,model_library_abonne,library.access_library_mid_level_group,1,0,0,0
 access_library_admin_abonne,access_library_admin_abonne,model_library_abonne,library.access_admin_level__group,1,1,1,1
 access_library_auteur,access_library_other,model_library_other,library.access_admin_level__group,1,1,1,1
+access_library_auteur_low,access_library_other_low,model_library_other,library.access_library_low_level_group,1,0,0,0
 access_library_emprunte,access_library_borrow,model_library_borrow,library.access_library_mid_level_group,1,1,1,1
 access_library_editeur,access_library_editor,model_library_editor,library.access_admin_level__group,1,1,1,1
 access_library_admin_exemplaire,access_library_admin_exemplary,model_library_exemplary,library.access_admin_level__group,1,1,1,1

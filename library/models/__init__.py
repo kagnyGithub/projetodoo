@@ -3,6 +3,10 @@ from  . import editeur
 from  . import  emprunte
 from  . import exemplaire
 from  . import  auteur
-from  .  import livre
+from  . import livre
 from  . import reserve
 from  . import theme
+from  . import accueil
+from  . import contact
+from  . import login
+from  . import about

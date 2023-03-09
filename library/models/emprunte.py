@@ -3,9 +3,10 @@ from datetime import datetime
 from datetime import timedelta
 from datetime import date
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import UserError
+
 
 class LibraryEmprunte(models.Model):
-
     _name="library.borrow"
     date_borrow = fields.Date(string='Date Emprunt', default=lambda self: date.today())
     date_return = fields.Date(string='Date Retour', compute='_compute_date_return',readonly=True)
@@ -33,3 +34,10 @@ class LibraryEmprunte(models.Model):
             new_date = date.today()
             today = record.date_return
             record.nbre_jour = relativedelta(today,new_date).days
+
+    @api.model
+    def create(self, values):
+        exemplary = self.env['library.exemplary'].browse(values['exemplary_id'])
+        if exemplary.book_id.state == 'rupture':
+            raise UserError('Ce livre est en rupture de stock')
+        return super(LibraryEmprunte, self).create(values)

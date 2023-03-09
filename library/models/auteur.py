@@ -7,6 +7,7 @@ class LibraryOther(models.Model):
     f_name= fields.Char('Prenom')
     bibliography = fields.Char(string='Bibliographie')
     book_ids = fields.Many2many('library.book',string='Livres')
+    
     def name_get(self):
         result = []
         for other in self:

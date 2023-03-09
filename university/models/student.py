@@ -17,12 +17,12 @@ class UniversityStudent(models.Model):
     sequence = fields.Char('sequnce')
     student_img = fields.Image(string='Image')
 
-    def name_get(self):
-       result=[]
-       for student in self:
-           var = '['+student.classroom_id.name+']'+' '+student.f_name+' '+student.l_name
-           result.append((student.id,var))
-       return result
+    # def name_get(self):
+    #    result=[]
+    #    for student in self:
+    #        var = '[AA'+student.classroom_id.name+']'+' '+student.f_name+' '+student.l_name
+    #        result.append((student.id,var))
+    #    return result
 
     def next_level(self):
         if self.state =='l1':

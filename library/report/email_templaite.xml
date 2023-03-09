@@ -10,7 +10,7 @@
         <field name="body_html" type="html">
             <div class="text-center">
                  <p>Dear <span t-out="object.l_name"/>,</p>
-                 <img t-attf-src="data:image/png;base64,{{object.image}}" style="width:64px;height:64px;object-fit:cover;" alt="img"></img>
+                 <img t-attf-src="data:image/png;base64,{{object.image}}" style="width:64px;height:64px;object-fit:cover;" alt="img"/>
             </div>
                 <p>Bonjour <span t-out="object.f_name"/>  <span t-out="object.l_name"/> Merci de rendre le livre dans 2 jours au plutard </p>
             <p>Merci de votre comprehension !!!  </p>

@@ -3,7 +3,7 @@ import datetime
 class LibraryAbonne(models.Model):
 
     _name="library.abonne"
-    code = fields.Char('Numero Carte',readonly=True)
+    cni = fields.Char('Numero Carte',readonly=True)
     l_name = fields.Char('Nom')
     f_name = fields.Char('Prenom')
     sex = fields.Selection([('female','Femme'),('male','Homme')])
@@ -35,17 +35,32 @@ class LibraryAbonne(models.Model):
     @api.model
     def create(self,values):
         values['isabonne']=True
-        # m=str(datetime.datetime.now().month)
-        # if len(m)<2:
-        #     m='0'+m
-        # values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
-
-        values['code'] = self.env['ir.sequence'].next_by_code("library.abonne")
+        m=str(datetime.datetime.now().month)
+        if len(m)<2:
+            m='0'+m
+        values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
         rtn = super(LibraryAbonne,self).create(values)
         return rtn
 
-    def write(self,values):
-        return super(LibraryAbonne,self).write(values)
+    # def write(self,values):
+    #     m=str(datetime.datetime.now().month)
+    #     if len(m)<2:
+    #         m='0'+m
+    #     if values['l_name'] is not None & values['f_name']is not None:
+    #         values['cni'] =str(datetime.datetime.now().year)+values['f_name'][0].upper()+values['l_name'][0].upper()+m
+    #     return super(LibraryAbonne,self).write(values)
+
+    def write(self, values):
+        if 'f_name' in values or 'l_name' in values:
+            m = str(datetime.datetime.now().month)
+            if len(m) < 2:
+                m = '0' + m
+                values['cni'] = str(datetime.datetime.now().year) + \
+                         (values.get('f_name', self.f_name) or '')[:1].upper() + \
+                         (values.get('l_name', self.l_name) or '')[:1].upper() + m
+
+            return super(LibraryAbonne, self).write(values)
+
 
     @api.returns('self',lambda value: value.id)
     def copy(self,default={}):

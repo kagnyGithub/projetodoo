@@ -12,6 +12,19 @@ class LibraryBook(models.Model):
     documents = fields.Binary(string='Documents')
     document_name = fields.Char(string='Document name')
     book_image= fields.Image(string='Upload  image', max_width=200,max_height=200,verified_resolution=False)
+    state = fields.Selection([
+        ('disponible', 'Disponible'),
+        ('rupture', 'En rupture')], string='Status', default='disponible', track_visibility='onchange')
+
+    
+    def button_dispo(self):
+        for project in self:
+            project.state = 'disponible'
+
+    
+    def button_rupture(self):
+        for project in self:
+            project.state = 'rupture'
 
     def name_get(self):
         result = []
