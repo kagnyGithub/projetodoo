@@ -1,0 +1,116 @@
+<odoo>
+   <template id="log_id">
+     <t t-extend="web.assets_common">
+        <link rel="stylesheet" href="/library/static/src/css/style.css"/>
+        <link rel="stylesheet" href="/library/static/src/css/log.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <script type="text/javascript" src="/library/static/src/js/script.js"></script>
+        <!-- <script type="text/javascript" src="/library/static/src/js/script2.js"></script> -->
+    </t>
+  <div class="container">
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a href="#">Library Management</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="/accueil">Accueil</a></li>
+        <li><a href="/about">A Propos</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Connexion</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <br/><br/><br/><br/><br/><br/>
+  <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login
+            </div>
+            <div class="title signup">
+               Register
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login"/>
+               <input type="radio" name="slide" id="signup"/>
+               <label for="login" class="slide login">Connexion</label>
+               <label for="signup" class="slide signup">Inscription</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="#" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="email"/>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="mot de passe"/>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Mot de passe oublié?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login"/>
+                  </div>
+                  <div class="signup-link">
+                     Vous n'avez pas de compte? <br/><a href="">Incrivez-vous!</a>
+                  </div>
+               </form>
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="email"/>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="mot de passe"/>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="confirmation mot de passe"/>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="S'inscrire"/>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      
+      <script>
+        const loginText = document.querySelector(".title-text .login");
+        const loginForm = document.querySelector("form.login");
+        const loginBtn = document.querySelector("label.login");
+        const signupBtn = document.querySelector("label.signup");
+        const signupLink = document.querySelector("form .signup-link a");
+        signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+        });
+        loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+        });
+        signupLink.onclick = (()=>{
+        signupBtn.click();
+        return false;
+        });</script>
+       
+    <footer>
+      <div class="bottom">
+        <center>
+          <span class="credit"><a href="/accueil">TDSI Library</a> | </span>
+          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
+  </div>
+ </template>
+
+  </odoo>

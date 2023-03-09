@@ -1,0 +1,87 @@
+<odoo>
+   <template id="about_id">
+     <t t-extend="web.assets_common">
+      <script type="text/javascript" src="/library/static/src/js/script.js"></script>
+      <link rel="stylesheet" href="/library/static/src/css/style.css"/>
+      <!-- <link rel="stylesheet" href="/library/static/src/css/about.scss"/> -->
+    </t>
+  <div class="container">
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a href="#">Library Management</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="/accueil">Accueil</a></li>
+        <li><a href="/about">A Propos</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Connexion</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <br/><br/><br/>
+     
+<div class="carousel">
+	<figure>
+		<img src="https://source.unsplash.com/EbuaKnSm8Zw/800x533" alt=""/>
+		<img src="https://source.unsplash.com/kG38b7CFzTY/800x533" alt=""/>
+		<img src="https://source.unsplash.com/nvzvOPQW0gc/800x533" alt=""/>
+		<img src="https://source.unsplash.com/2lYHiNtjSwg/800x533" alt=""/>
+		<img src="https://source.unsplash.com/CjS3QsRuxnE/800x533" alt=""/>
+		<img src="https://source.unsplash.com/xxeAftHHq6E/800x533" alt=""/>
+		<img src="https://source.unsplash.com/bjhrzvzZeq4/800x533" alt=""/>
+		<img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt=""/>
+	</figure>
+	<nav>
+		<button class="nav prev">Prev</button>
+		<button class="nav next">Next</button>
+	</nav>
+</div>
+<script>
+var
+	carousel = document.querySelector('.carousel'),
+	figure = carousel.querySelector('figure'),
+	nav = carousel.querySelector('nav'),
+	numImages = figure.childElementCount,
+	theta =  2 * Math.PI / numImages,
+	currImage = 0
+;
+	
+nav.addEventListener('click', onClick, true);
+
+function onClick(e) {
+	e.stopPropagation();
+	
+	var t = e.target;
+	if (t.tagName.toUpperCase() != 'BUTTON')
+		return;
+	
+	if (t.classList.contains('next')) {
+		currImage++;
+	}
+	else {
+		currImage--;
+	}
+	
+	figure.style.transform = `rotateY(${currImage * -theta}rad)`;
+}
+
+</script>
+    <footer>
+      <div class="bottom">
+        <center>
+          <span class="credit"><a href="/accueil">TDSI Library</a> | </span>
+          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
+  </div>
+ </template>
+
+</odoo>

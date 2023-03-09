@@ -1,0 +1,79 @@
+<odoo>
+   <template id="contact_id">
+     <t t-extend="web.assets_common">
+        <link rel="stylesheet" href="/library/static/src/css/style.css"/>
+        <link rel="stylesheet" href="/library/static/src/css/contact.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <script type="text/javascript" src="/library/static/src/js/script.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </t>
+  <div class="container">
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a href="#">Library Management</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="/accueil">Accueil</a></li>
+        <li><a href="/about">A Propos</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Connexion</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <br/><br/><br/><br/><br/><br/>
+    <div class="contain">
+  <div class="wrapper">
+    <header>Contactez-Nous</header>
+    <form action="#">
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="name" placeholder="Entrer votre nom"/>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="fistname" placeholder="Entrer votre Prenom"/>
+          <i class='fas fa-user'></i>
+        </div>
+      </div>
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="phone" placeholder="Entrer votre telephone"/>
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Entrer votre email"/>
+          <i class='fas fa-envelope'></i>
+        </div>
+      </div>
+      <div class="message">
+        <textarea placeholder="Ecrire votre message" name="message"></textarea>
+        <i class="material-icons">message</i>
+      </div>
+      <div class="button-area">
+        <button type="submit">Envoyer</button>
+        <span></span>
+      </div>
+    </form>
+  </div>
+</div>
+ 
+    <footer>
+      <div class="bottom">
+        <center>
+          <span class="credit"><a href="/accueil">TDSI Library</a> | </span>
+          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
+  </div>
+ </template>
+
+  </odoo>
